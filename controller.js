@@ -90,6 +90,59 @@ class Controller {
         })
     }
 
+    static editForm(req,res){
+        Team.findByPk(req.params.id)
+        .then(data =>{
+            res.render('./views/teamViews/editTeam')
+        })
+        .cacth(err =>{
+            res.send(err)
+        })
+    }
+
+    static edit(req,res){
+        let params = {
+            name: req.body.name,
+            password: req.body.password,
+            country: req.body.country
+        }
+
+        Team.update(params, {
+            returning: true
+        })
+            .then(data => {
+                if (req.body.GameId.length > 1) {
+                    req.body.GameId.forEach(game => {
+                        TeamGame.update({
+                            TeamId: data.id,
+                            GameId: game
+                        })
+                    })
+                } else {
+                    TeamGame.update({
+                        TeamId: data.id,
+                        GameId: req.body.GameId
+                    })
+                }
+
+                res.redirect('/dashboard')
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    static remove(req,res){
+        let id = req.parama.id
+        Team.destroy({where:{id}})
+        .then(data =>{
+            res.redirect('/logout')
+        })
+        .catch(err =>{
+            res.send(err)
+        })
+    }
+
     static games (req, res) {
         Game.findAll({
             include: [Team]
