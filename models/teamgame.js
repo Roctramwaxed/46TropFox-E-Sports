@@ -11,10 +11,29 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      TeamGame.belongsTo(models.Game, {foreignKey: 'GameId'})
+      TeamGame.belongsTo(models.Team, {foreignKey: 'TeamId'})
     }
   };
   TeamGame.init({
-    slot - number: DataTypes.INTEGER
+    TeamId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Teams',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
+    GameId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Games',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
   }, {
     sequelize,
     modelName: 'TeamGame',
