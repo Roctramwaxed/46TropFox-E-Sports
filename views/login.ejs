@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <%- include('./navbar/cssBootstrap.ejs') %>
+    <title>Login</title>
 </head>
 <body>
-    <h1>Log In</h1>
-    <div>
-        <form action="/teams/login" method="GET" class="table table-striped table-dark">
-            <label for="">Username:</label><br>
-            <input type="text" name="team_name" placeholder="Team's Name"><br>
-            <label for="">Password:</label><br>
-            <input type="password" name="password" placeholder="Password"><br>
-        </form>
-        <button type="submit">LogIn</button>
-    </div>
+    <%- include('./navbar/navbar.ejs') %>
+    <h1>Team Login</h1>
+    <a href="/register">REGISTER YOUR TEAM HERE!</a>
+    <p><%= err %></p>
+    <form action="/login", method="POST">
+        <label>Team Name: </label>
+        <input type="text" name="name">
+        <br>
+        <label>Password: </label>
+        <input type="password" name="password">
+        <br>
+        <button type="submit">submit</button>
+    </form>
 </body>
 <%- include('./navbar/jsBootstrap.ejs') %>
 </html>

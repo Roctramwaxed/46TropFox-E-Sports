@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('./navbar/navbar.ejs') %>
+    <h1>Edit Member</h1>
     <div>
         <form action="/teams/register" method="POST" class ="table-bordered table-dark">
             <label for="">Team Name:</label><br>
@@ -18,8 +20,8 @@
             <input type="checkbox" name="GameId" value="fifa">FIFA <br>
             <label for="">Icon:</label> <br>
             <input type="file" name="icon" id=""><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </body>
 </html>

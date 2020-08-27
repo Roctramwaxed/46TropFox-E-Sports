@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./navbar/navbar.ejs') %>
+    <% games.forEach(game => { %>
+        <h3><%= game.name %></h3>
+        <table border="1">
+            <thead>
+                <th>Team</th>
+                <th>Country</th>
+            </thead>
+            <tbody>
+                <% game.Teams.forEach(team => { %>
+                    <tr>
+                        <td><img src="<%= team.icon %>" width="200px" height="200px"><br><p style="text-align: center;"><%= team.name %></p></td>
+                        <td><%= team.country %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }) %>
+</body>
+</html>

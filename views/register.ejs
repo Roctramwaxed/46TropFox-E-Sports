@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register page</title>
-    <%- include('./navbar/cssBootstrap.ejs') %>
+    <title>Register</title>
 </head>
 <body>
-    <h1>Team Register</h1>
-    <div>
-        <form action="/teams/register" method="POST" class ="table-bordered table-dark">
-            <label for="">Team Name:</label><br>
-            <input type="text" name="team_name" placeholder="Input Your Team Name"><br>
-            <label for="">Country:</label><br>
-            <input type="text" name="country" placeholder="Input Your Team Country"><br>
-            <label for="">Password:</label><br>
-            <input type="text" name="password"><br>
-            <label for="">Icon:</label> <br>
-            <input type="file" name="icon" id=""><br>
-        </form><br>
-        <button type="submit">Register</button>
-    </div>
+    <%- include('./navbar/navbar.ejs') %>
+    <h1>Register Page</h1>
+    <p>Already joined? <a href="/login">Login here!</a></p>
+    <form action="/register" method="POST" enctype="multipart/form-data">
+        <div>
+            <label>Team Name</label>
+            <div>
+                <input type="text" name="name">
+            </div>
+        </div>
+        <div>
+            <label>Password</label>
+            <div>
+                <input type="password" name="password">
+            </div>
+        </div>
+        <div>
+            <label>Country</label>
+            <div>
+                <input type="text" name="country">
+            </div>
+        </div>
+        <div>
+            <label>Team Icon</label>
+            <div>
+                <input type="file" name="icon">
+            </div>
+        </div>
+        <div>
+            <label>Games Participating in</label>
+            <div>
+                <% games.forEach(game => { %>
+                <input type="checkbox" value="<%= game.id %>" name="GameId">
+                <label for="GameId"><%= game.name %></label>
+                <% }) %>
+            </div>
+        </div>
+        <input type="submit" value="Register">
+    </form>
 </body>
 <%- include('./navbar/jsBootstrap.ejs') %>
 </html>

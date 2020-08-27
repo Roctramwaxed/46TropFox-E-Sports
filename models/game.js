@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Game.hasMany(models.TeamGame, {foreignKey: 'GameId'})
+      Game.belongsToMany(models.Team, {through: models.TeamGame, foreignKey: 'GameId'})
     }
   };
   Game.init({
-    name: DataTypes.STRING,
-    max_players: DataTypes.INTEGER
+    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Game',

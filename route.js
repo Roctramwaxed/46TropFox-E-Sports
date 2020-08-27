@@ -1,23 +1,38 @@
 const route = require('express').Router()
+const multer = require('multer')
+const authMidware = require('./middleware/authMidware')
+const Controller = require('./controller')
 
-route.get('/',(req,res) =>{
-    res.render('homePage')
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'team_icons/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, `${req.body.name}.jpg`)
+    }
 })
 
-route.get('/teamPage',(req,res)=>{
-    res.render('./teamViews/teamPage')
+const upload = multer({
+    storage: storage
 })
 
-route.get('/games',(req,res)=>{
-    res.render('./gameViews/gamePage')
-})
+// Home
+route.get('/', Controller.home)
 
-route.get('/teams/login',(req,res)=>{
-    res.render('login')
-})
+route.get('/games', Controller.games)
 
-route.get('/teams/register',(req,res)=>{
-    res.render('register')
-})
+//-----------------Team-----------------
+// login
+route.get('/login', Controller.loginPage)
+route.post('/login', Controller.login)
+
+// register
+route.get('/register', Controller.registerPage)
+route.post('/register', upload.single('icon'), Controller.register)
+
+route.use(authMidware)
+route.get('/dashboard', Controller.dashboard)
+
+route.get('/logout', Controller.logout)
 
 module.exports = route
