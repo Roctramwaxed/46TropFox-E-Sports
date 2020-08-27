@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('./navbar/navbar.ejs') %>
     <% games.forEach(game => { %>
         <h3><%= game.name %></h3>
         <table border="1">
