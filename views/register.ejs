@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>register page</title>
+    <%- include('./navbar/cssBootstrap.ejs') %>
 </head>
 <body>
     <h1>Team Register</h1>
     <div>
-        <form action="/teams/register" method="POST">
+        <form action="/teams/register" method="POST" class ="table-bordered table-dark">
             <label for="">Team Name:</label><br>
             <input type="text" name="team_name" placeholder="Input Your Team Name"><br>
             <label for="">Country:</label><br>
             <input type="text" name="country" placeholder="Input Your Team Country"><br>
-            <label for="">Password:</label>
+            <label for="">Password:</label><br>
             <input type="text" name="password"><br>
             <label for="">Icon:</label> <br>
             <input type="file" name="icon" id=""><br>
@@ -21,4 +22,5 @@
         <button type="submit">Register</button>
     </div>
 </body>
+<%- include('./navbar/jsBootstrap.ejs') %>
 </html>

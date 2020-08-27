@@ -6,34 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Edit Member</h1>
-    <section>
-        <div>
-            <% data.Game.ForEach(datum =>{
-                <form action="/members/edit/<% data.id %>" method="POST">
-                    <label for="">Name:</label><br>
-                    <input type="text" name="name" value="<%= data.name %>"><br>
-                    <label for="">Age:</label><br>
-                    <input type="number" name="age" value="<%= data.age %>"><br>
-                    <label for="">Role:</label>
-                    <select name="role" id="">
-                        <% if(datum.name === dota){ %>
-                            <option value="carry">Carry</option>
-                            <option value="midlane">Midlane</option>
-                            <option value="offlaner">Offlaner</option>
-                            <option value="softsupport">Soft Support</option>
-                            <option value="hardsupport">Hard Supports</option>
-                        <% } %>
-                        <% if(datum.name === PUBG){ %>
-                            <option value="player">PUBG Player</option> 
-                        <% } %>
-                        <% if(datum.name === FIFA){ %>
-                            <option value="player">FIFA Player</option>
-                        <% } %>
-                    </select>
-                </form>
-           <% }) %>
-        </div>
-    </section>
+    <div>
+        <form action="/teams/register" method="POST" class ="table-bordered table-dark">
+            <label for="">Team Name:</label><br>
+            <input type="text" name="team_name" value="data.name"><br>
+            <label for="">Country:</label><br>
+            <input type="text" name="country" value="data.country"><br>
+            <label for="">Game:</label>
+            <input type="checkbox" name="GameId" value="dota">Dota <br>
+            <input type="checkbox" name="GameId" value="pubg">PUBG <br>
+            <input type="checkbox" name="GameId" value="fifa">FIFA <br>
+            <label for="">Icon:</label> <br>
+            <input type="file" name="icon" id=""><br>
+        </form><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Icon</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(datum =>{ %>
+                <tr>
+                    <td><%= datum.name %></td>
+                    <td><%= datum.country %></td>
+                    <td><%= datum.icon %></td>
+                    <td>
+                        <a href="/teams/edit/<%= datum.id %>">Edit</a>
+                        <a href="/teams/delete/<%= datum.id %>">Remove</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

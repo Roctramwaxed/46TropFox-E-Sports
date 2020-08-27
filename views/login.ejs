@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <%- include('./navbar/cssBootstrap.ejs') %>
 </head>
 <body>
     <h1>Log In</h1>
     <div>
-        <form action="/teams/login" method="GET">
-            <label for="">Username:</label>
-            <input type="text" name="team_name" placeholder="Team's Name">
-            <label for="">Password:</label>
-            <input type="password" name="password" placeholder="Password">
+        <form action="/teams/login" method="GET" class="table table-striped table-dark">
+            <label for="">Username:</label><br>
+            <input type="text" name="team_name" placeholder="Team's Name"><br>
+            <label for="">Password:</label><br>
+            <input type="password" name="password" placeholder="Password"><br>
         </form>
         <button type="submit">LogIn</button>
     </div>
 </body>
+<%- include('./navbar/jsBootstrap.ejs') %>
 </html>

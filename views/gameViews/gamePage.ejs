@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games List Page</title>
+    <%- include('../navbar/cssBootstrap.ejs') %>
+</head>
+<body>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Games</th>
+                <th>Max_player</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(datum =>{ %>
+                <tr>
+                    <td><%= datum.name %></td>
+                    <td><%= datum.max_players %></td>
+                </tr>
+           <% }) %>
+        </tbody>
+    </table>
+</body>
+<%- include('../navbar/jsBootstrap.ejs') %>
+</html>
