@@ -35,5 +35,4 @@ route.get('/dashboard', Controller.dashboard)
 
 route.get('/logout', Controller.logout)
 
-
 module.exports = route

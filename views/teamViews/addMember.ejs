@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/members/add" method="POST">
+        <label for="">Name:</label><br>
+        <input type="text" name="name"><br>
+        <label for="">Age:</label><br>
+        <input type="number" name="age"><br>
+        <label for="">Game:</label><br>
+        <select name="game" id="">
+            <option value="dota">Dota</option>
+            <option value="pubg">PUBG</option>
+            <option value="fifa">FIFA</option>
+        </select>
+        <label for="">Role:</label>
+        <select name="role" id="">
+            <% if(datum.name === Dota){ %>
+                <option value="carry">Carry</option>
+                <option value="midlane">Midlane</option>
+                <option value="offlaner">Offlaner</option>
+                <option value="softsupport">Soft Support</option>
+                <option value="hardsupport">Hard Supports</option>
+            <% } %>
+            <% if(datum.name === PUBG){ %>
+                <option value="player">PUBG Player</option> 
+            <% } %>
+            <% if(datum.name === FIFA){ %>
+                <option value="player">FIFA Player</option>
+            <% } %>
+        </select>
+    </form>
+</body>
+</html>
