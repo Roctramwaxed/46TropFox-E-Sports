@@ -1,30 +1,26 @@
 'use strict';
 
+const games = [
+  {
+    name: 'dota',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }, {
+    name: 'PUBG',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }, {
+    name: 'FIFA',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+]
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    const games = [
-      {
-        name: 'dota',
-        max_players: 6,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }, {
-        name: 'PUBG',
-        max_players: 5,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }, {
-        name: 'Mobile Legends',
-        max_players: 6,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }, {
-        name: 'FIFA',
-        max_players: 1,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ]
+
+
+
     return queryInterface.bulkInsert('Games', games)
     /**
      * Add seed commands here.

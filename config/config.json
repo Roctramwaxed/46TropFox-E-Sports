@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "vikryprakasa",
-    "password": "vikgans",
+    "username": "postgres",
+    "password": "drowssap",
     "database": "46TROPFOX-E-SPORT",
     "host": "localhost",
     "dialect": "postgres"

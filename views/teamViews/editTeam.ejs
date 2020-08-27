@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Member</h1>
+    <section>
+        <div>
+            <% data.Game.ForEach(datum =>{
+                <form action="/members/edit/<% data.id %>" method="POST">
+                    <label for="">Name:</label><br>
+                    <input type="text" name="name" value="<%= data.name %>"><br>
+                    <label for="">Age:</label><br>
+                    <input type="number" name="age" value="<%= data.age %>"><br>
+                    <label for="">Role:</label>
+                    <select name="role" id="">
+                        <% if(datum.name === dota){ %>
+                            <option value="carry">Carry</option>
+                            <option value="midlane">Midlane</option>
+                            <option value="offlaner">Offlaner</option>
+                            <option value="softsupport">Soft Support</option>
+                            <option value="hardsupport">Hard Supports</option>
+                        <% } %>
+                        <% if(datum.name === PUBG){ %>
+                            <option value="player">PUBG Player</option> 
+                        <% } %>
+                        <% if(datum.name === FIFA){ %>
+                            <option value="player">FIFA Player</option>
+                        <% } %>
+                    </select>
+                </form>
+           <% }) %>
+        </div>
+    </section>
+</body>
+</html>
